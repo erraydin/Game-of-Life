@@ -8,6 +8,9 @@ export type canvasProps = {
 const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
     const wrapper = useRef<HTMLDivElement>(null);
 
+    if (wrapper.current !== null) {
+        new p5(sketch, wrapper.current);
+    }
     useEffect(() => {
         if (wrapper.current !== null) {
             new p5(sketch, wrapper.current);
