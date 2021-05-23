@@ -1,21 +1,20 @@
 import p5 from "p5";
-import { FunctionComponent, useEffect, useRef } from "react"
-
+import { FunctionComponent, useEffect, useRef, useState } from "react"
+import defineSketch from "../p5/sketch";
 export type canvasProps = {
     sketch: (sketch: p5) => void;
 }
 
 const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
+    // const [playing, setPlaying] = useState(false);
     const wrapper = useRef<HTMLDivElement>(null);
+    const mySketch = defineSketch(20, 30, 30);
 
-    if (wrapper.current !== null) {
-        new p5(sketch, wrapper.current);
-    }
     useEffect(() => {
         if (wrapper.current !== null) {
-            new p5(sketch, wrapper.current);
+            const myP5 = new p5(mySketch, wrapper.current);
         }
-    }, [sketch])
+    }, [mySketch])
 
     return <div ref={wrapper} />
 }
