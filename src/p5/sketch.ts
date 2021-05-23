@@ -1,10 +1,15 @@
 import p5 from "p5";
 
-const defineSketch = (w: number, columns: number, rows: number) => {
-    return (sketch: p5) => {
+export type myP5 = p5 & { playing?: boolean }
+const defineSketch = (
+    w: number,
+    columns: number,
+    rows: number,
+) => {
+    return (sketch: myP5) => {
+        sketch.playing = false;
         let curBoard: Array<Array<number>>;
         let nextBoard: Array<Array<number>>;
-
         sketch.setup = () => {
             sketch.createCanvas(w * rows, w * columns);
             sketch.frameRate(10);
@@ -33,7 +38,10 @@ const defineSketch = (w: number, columns: number, rows: number) => {
                     sketch.rect(i * w, j * w, w - 1, w - 1);
                 }
             }
-            nextFrame();
+            if (sketch.playing) {
+                nextFrame();
+            }
+
 
         }
 
