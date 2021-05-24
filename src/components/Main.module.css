@@ -12,3 +12,11 @@
     display: flex;
     flex-direction: row;
 }
+
+.canvas {
+    border: solid 2px antiquewhite;
+    margin-right: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    touch-action: none;
+}
