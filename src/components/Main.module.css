@@ -14,6 +14,8 @@
 }
 
 .canvas {
+    height: 600px;
+    width: 600px;
     border: solid 2px antiquewhite;
     margin-right: 20px;
     border-radius: 20px;
