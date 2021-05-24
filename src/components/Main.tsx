@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 import p5 from "p5";
 import defineSketch, { myP5 } from "../p5/sketch";
-import Controls from "./Controls";
+import Controls from "./Controls/Controls";
 import classes from "./Main.module.css";
 import Patterns from "./Patterns";
-import Preferences from "./Preferences";
+import Preferences from "./Preferences/Preferences";
 
 const Main = () => {
     const wrapper = useRef<HTMLDivElement>(null);
