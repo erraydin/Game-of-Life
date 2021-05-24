@@ -4,13 +4,15 @@ export type myP5 = p5 & {
     playing?: boolean,
     columns?: number,
     rows?: number,
-    squareWidth?: number
+    squareWidth?: number,
+    fps?: number
 }
 const defineSketch = (
     playing: boolean,
     w: number,
     cols: number,
     rows: number,
+    fps: number
 ) => {
     return (sketch: myP5) => {
         //custom properties
@@ -18,6 +20,7 @@ const defineSketch = (
         sketch.columns = cols;
         sketch.rows = rows;
         sketch.squareWidth = w;
+        sketch.fps = fps;
 
         let curBoard: Array<Array<number>>;
         let nextBoard: Array<Array<number>>;
@@ -28,7 +31,7 @@ const defineSketch = (
                 sketch.squareWidth! * sketch.rows!,
                 sketch.squareWidth! * sketch.columns!
             );
-            sketch.frameRate(10);
+
             curBoard = new Array(sketch.rows);
             nextBoard = new Array(sketch.rows);
             for (let i = 0; i < rows; i++) {
@@ -43,6 +46,7 @@ const defineSketch = (
         }
 
         sketch.draw = () => {
+            sketch.frameRate(sketch.fps!);
             for (let i = 0; i < sketch.rows!; i++) {
                 for (let j = 0; j < sketch.columns!; j++) {
                     if (curBoard[i][j] === 1) {
