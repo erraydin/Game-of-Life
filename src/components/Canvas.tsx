@@ -1,20 +1,17 @@
 import p5 from "p5";
-import { ChangeEvent, FunctionComponent, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import defineSketch, { myP5 } from "../p5/sketch";
 import classes from "./Canvas.module.css";
 
-export type canvasProps = {
-    sketch: (sketch: myP5) => void;
-}
 
 
-const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
+const Canvas = () => {
     const [playButtonText, setPlayButtonText] = useState("Play");
-    const [fps, setFps] = useState(20);
+    // const [fps, setFps] = useState(20);
     const [name, setName] = useState("ali")
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-    console.log(window.innerHeight);
+
     useEffect(() => {
         if (wrapper.current !== null) {
             myP5.current = new p5(defineSketch(false, 600 / 30, 30, 30, 20), wrapper.current)
@@ -28,25 +25,25 @@ const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
         else setPlayButtonText("Play");
     }
 
-    const sizeSliderHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        const num = +event.target.value;
-        const playing = myP5.current!.playing;
-        myP5.current?.remove();
-        myP5.current = new p5(defineSketch(playing!, 600 / num, num, num, fps), wrapper.current!)
-    }
+    // const sizeSliderHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    //     const num = +event.target.value;
+    //     const playing = myP5.current!.playing;
+    //     myP5.current?.remove();
+    //     myP5.current = new p5(defineSketch(playing!, 600 / num, num, num, fps), wrapper.current!)
+    // }
 
-    const fpsSliderHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        const fps = +event.target.value;
-        setFps(fps);
-        myP5.current!.fps = fps;
+    // const fpsSliderHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    //     const fps = +event.target.value;
+    //     setFps(fps);
+    //     myP5.current!.fps = fps;
 
-    }
+    // }
 
     return <div>
         <div className={classes.sketch} ref={wrapper} />
         <div>{name}</div>
         <button onClick={playButtonHandler}>{playButtonText}</button>
-        <div>
+        {/* <div>
             <label htmlFor="fpsSlider">Speed: {fps} fps</label>
             <input
                 name="fpsSlider"
@@ -56,9 +53,9 @@ const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
                 max="60"
                 defaultValue="20"
                 className={classes.slider} />
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
             <label htmlFor="sizeSlider">Size:</label>
             <input
                 name="sizeSlider"
@@ -68,7 +65,7 @@ const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
                 max="60"
                 defaultValue="30"
                 className={classes.slider} />
-        </div>
+        </div> */}
         <button onClick={() => {
             setName("veli")
             console.log("The current wrapper is: " + wrapper.current);

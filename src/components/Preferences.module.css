@@ -1,8 +1,55 @@
+.column {
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.populateButton {
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.populateButton:hover {
+    background-color: #6cbe6f;
+}
+
+.clearButton {
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #af4c4c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.clearButton:hover {
+    background-color: #bd6262;
+}
+
 .slider {
     -webkit-appearance: none;
     /* Override default CSS styles */
     appearance: none;
-    width: 600px;
+    width: 200px;
     /* Full-width */
     height: 10px;
     /* Specified height */
@@ -50,12 +97,4 @@
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
-}
-
-.sketch {
-    border: solid 2px antiquewhite;
-    margin-right: 20px;
-    border-radius: 20px;
-    padding: 20px;
-    touch-action: none;
 }

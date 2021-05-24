@@ -1,11 +1,8 @@
-import Canvas from "./components/Canvas";
-import defineSketch from "./p5/sketch";
-
+import Main from "./components/Main";
 
 function App() {
-  const sketch = defineSketch(false, 20, 30, 30, 20);
   return (
-    <Canvas sketch={sketch} />
+    <Main />
   );
 }
 
