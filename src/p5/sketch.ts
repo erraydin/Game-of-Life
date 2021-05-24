@@ -1,24 +1,39 @@
 import p5 from "p5";
 
-export type myP5 = p5 & { playing?: boolean }
+export type myP5 = p5 & {
+    playing?: boolean,
+    columns?: number,
+    rows?: number,
+    squareWidth?: number
+}
 const defineSketch = (
     w: number,
-    columns: number,
+    cols: number,
     rows: number,
 ) => {
     return (sketch: myP5) => {
+        //custom properties
         sketch.playing = false;
+        sketch.columns = cols;
+        sketch.rows = rows;
+        sketch.squareWidth = w;
+
         let curBoard: Array<Array<number>>;
         let nextBoard: Array<Array<number>>;
+
+
         sketch.setup = () => {
-            sketch.createCanvas(w * rows, w * columns);
-            sketch.frameRate(10);
-            curBoard = new Array(rows);
-            nextBoard = new Array(rows);
+            sketch.createCanvas(
+                sketch.squareWidth! * sketch.rows!,
+                sketch.squareWidth! * sketch.columns!
+            );
+            sketch.frameRate(30);
+            curBoard = new Array(sketch.rows);
+            nextBoard = new Array(sketch.rows);
             for (let i = 0; i < rows; i++) {
-                curBoard[i] = new Array(columns);
-                nextBoard[i] = new Array(columns);
-                for (let j = 0; j < columns; j++) {
+                curBoard[i] = new Array(sketch.columns);
+                nextBoard[i] = new Array(sketch.columns);
+                for (let j = 0; j < sketch.columns!; j++) {
                     curBoard[i][j] = 0;
                     nextBoard[i][j] = 0;
                 }
@@ -27,14 +42,15 @@ const defineSketch = (
         }
 
         sketch.draw = () => {
-            for (let i = 0; i < rows; i++) {
-                for (let j = 0; j < columns; j++) {
+            for (let i = 0; i < sketch.rows!; i++) {
+                for (let j = 0; j < sketch.columns!; j++) {
                     if (curBoard[i][j] === 1) {
                         sketch.fill(0);
                     } else {
                         sketch.fill(255);
                     }
-                    sketch.stroke(200);
+                    sketch.stroke(240);
+                    sketch.strokeWeight(0.3);
                     sketch.rect(i * w, j * w, w - 1, w - 1);
                 }
             }
@@ -46,8 +62,8 @@ const defineSketch = (
         }
 
         const nextFrame = () => {
-            for (let row = 1; row < rows - 1; row++) {
-                for (let col = 1; col < columns; col++) {
+            for (let row = 1; row < sketch.rows! - 1; row++) {
+                for (let col = 1; col < sketch.columns!; col++) {
                     let neighbors = 0;
                     for (let i = -1; i <= 1; i++) {
                         for (let j = -1; j <= 1; j++) {
@@ -75,7 +91,12 @@ const defineSketch = (
         sketch.mouseDragged = () => {
             let row = Math.floor(sketch.mouseX / w);
             let col = Math.floor(sketch.mouseY / w);
-            if (0 <= row && row < rows && 0 <= col && col < columns) {
+            if (
+                0 <= row &&
+                row < sketch.rows! &&
+                0 <= col &&
+                col < sketch.columns!
+            ) {
                 curBoard[row][col] = 1;
             }
 
@@ -84,7 +105,12 @@ const defineSketch = (
         sketch.mousePressed = () => {
             let row = Math.floor(sketch.mouseX / w);
             let col = Math.floor(sketch.mouseY / w);
-            if (0 <= row && row < rows && 0 <= col && col < columns) {
+            if (
+                0 <= row &&
+                row < sketch.rows!
+                && 0 <= col
+                && col < sketch.columns!
+            ) {
                 curBoard[row][col] = 1;
             }
         }
