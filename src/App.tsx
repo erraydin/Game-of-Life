@@ -3,7 +3,7 @@ import defineSketch from "./p5/sketch";
 
 
 function App() {
-  const sketch = defineSketch(20, 30, 30);
+  const sketch = defineSketch(false, 20, 30, 30);
   return (
     <Canvas sketch={sketch} />
   );

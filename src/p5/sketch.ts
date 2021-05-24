@@ -7,13 +7,14 @@ export type myP5 = p5 & {
     squareWidth?: number
 }
 const defineSketch = (
+    playing: boolean,
     w: number,
     cols: number,
     rows: number,
 ) => {
     return (sketch: myP5) => {
         //custom properties
-        sketch.playing = false;
+        sketch.playing = playing;
         sketch.columns = cols;
         sketch.rows = rows;
         sketch.squareWidth = w;
@@ -27,7 +28,7 @@ const defineSketch = (
                 sketch.squareWidth! * sketch.rows!,
                 sketch.squareWidth! * sketch.columns!
             );
-            sketch.frameRate(30);
+            sketch.frameRate(10);
             curBoard = new Array(sketch.rows);
             nextBoard = new Array(sketch.rows);
             for (let i = 0; i < rows; i++) {
