@@ -1,0 +1,1 @@
+export const mod = (m, n) => ((m % n) + n) % n;

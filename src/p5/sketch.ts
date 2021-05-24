@@ -1,4 +1,5 @@
 import p5 from "p5";
+import { mod } from "../utils/mod";
 
 export type myP5 = p5 & {
     playing?: boolean,
@@ -67,12 +68,13 @@ const defineSketch = (
         }
 
         const nextFrame = () => {
-            for (let row = 1; row < sketch.rows! - 1; row++) {
-                for (let col = 1; col < sketch.columns!; col++) {
+            for (let row = 0; row < sketch.rows!; row++) {
+                for (let col = 0; col < sketch.columns!; col++) {
                     let neighbors = 0;
                     for (let i = -1; i <= 1; i++) {
                         for (let j = -1; j <= 1; j++) {
-                            neighbors += curBoard[row + i][col + j];
+                            neighbors += curBoard[mod(row + i, sketch.rows)]
+                            [mod(col + j, sketch.columns)];
                         }
                     }
                     neighbors -= curBoard[row][col];

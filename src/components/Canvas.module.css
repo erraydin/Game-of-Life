@@ -51,3 +51,7 @@
     cursor: pointer;
     /* Cursor on hover */
 }
+
+.sketch {
+    touch-action: none;
+}

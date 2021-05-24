@@ -14,8 +14,7 @@ const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
     const [name, setName] = useState("ali")
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-
-
+    console.log(window.innerHeight);
     useEffect(() => {
         if (wrapper.current !== null) {
             myP5.current = new p5(defineSketch(false, 600 / 30, 30, 30, 20), wrapper.current)
@@ -44,7 +43,7 @@ const Canvas: FunctionComponent<canvasProps> = ({ sketch }) => {
     }
 
     return <div>
-        <div ref={wrapper} />
+        <div className={classes.sketch} ref={wrapper} />
         <div>{name}</div>
         <button onClick={playButtonHandler}>{playButtonText}</button>
         <div>
