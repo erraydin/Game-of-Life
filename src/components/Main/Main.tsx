@@ -3,14 +3,14 @@ import p5 from "p5";
 import defineSketch, { myP5 } from "../../p5/sketch";
 import Controls from "../Controls/Controls";
 import classes from "./Main.module.css";
-import Patterns from "../Patterns";
+import Patterns from "../Patterns/Patterns";
 import Preferences from "../Preferences/Preferences";
 import { pattern } from "../../p5/presets"
 
 const Main = () => {
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-    const myPattern = pattern.get("119P4H1V0");
+    const myPattern = pattern.get("achimsp144");
     const size = myPattern!.length;
 
     useEffect(() => {

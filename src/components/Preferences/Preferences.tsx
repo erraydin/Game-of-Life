@@ -20,7 +20,7 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, wrapper, initi
                     name="sizeSlider"
                     type="range"
                     min="5"
-                    max="120"
+                    max="128"
                     defaultValue={initialSize}
                     className={classes.slider}
                 />
