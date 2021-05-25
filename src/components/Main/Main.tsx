@@ -10,10 +10,10 @@ import { pattern101 } from "../../p5/presets"
 const Main = () => {
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-
+    const size = 32;
     useEffect(() => {
         if (wrapper.current !== null) {
-            myP5.current = new p5(defineSketch(false, 600 / 32, 32, 32, 20, pattern101), wrapper.current)
+            myP5.current = new p5(defineSketch(false, 600 / size, size, size, 20, pattern101), wrapper.current)
             console.log("useEffectCalled");
         }
     }, [])
@@ -24,7 +24,7 @@ const Main = () => {
             <div className={classes.canvas} ref={wrapper} />
             <div className={classes.column}>
                 <div className={classes.row}>
-                    <Preferences myP5={myP5} wrapper={wrapper} />
+                    <Preferences myP5={myP5} wrapper={wrapper} initialSize={size} />
                     <Patterns />
                 </div>
                 <Controls myP5={myP5} />

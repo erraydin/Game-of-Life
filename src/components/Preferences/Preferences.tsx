@@ -4,10 +4,11 @@ import { sizeSliderHandler, fpsSliderHandler } from "./PreferencesHandlers"
 import { PreferencesProps } from "./PreferencesProps";
 
 
-const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, wrapper }) => {
+const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, wrapper, initialSize }) => {
+    const initSize = myP5.current?.rows
+    console.log(initSize)
     const [fps, setFps] = useState(20);
-    const [size, setSize] = useState(30);
-
+    const [size, setSize] = useState(initialSize);
     return (
         <div className={classes.column}>
             <div>
@@ -20,7 +21,7 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, wrapper }) => 
                     type="range"
                     min="5"
                     max="120"
-                    defaultValue="30"
+                    defaultValue={initialSize}
                     className={classes.slider}
                 />
             </div>

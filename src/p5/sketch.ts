@@ -60,7 +60,7 @@ const defineSketch = (
                     }
                     sketch.stroke(240);
                     sketch.strokeWeight(0.3);
-                    sketch.rect(i * w, j * w, w - 1, w - 1);
+                    sketch.rect(j * w, i * w, w - 1, w - 1);
                 }
             }
             if (sketch.playing) {
