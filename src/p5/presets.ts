@@ -39,6 +39,18 @@ const patternachimsp144 = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 //#endregion
 
+
+export const createEmptyBoard = (size: number) => {
+    const res = new Array(size);
+    for (let row = 0; row < size; row++) {
+        res[row] = new Array(size);
+        for (let col = 0; col < size; col++) {
+            res[row][col] = 0;
+        }
+    }
+    return res;
+}
+
 const pattern: Map<string, number[][]> = new Map();
 
 pattern.set("101", pattern101)

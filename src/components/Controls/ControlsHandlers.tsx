@@ -1,10 +1,9 @@
-import { myP5 } from "../../p5/sketch";
+import { myP5 } from "../../p5/mySketch";
 
 export const playButtonHandler = (
     myP5: React.MutableRefObject<myP5 | null>,
-    setPlayButtonText: React.Dispatch<React.SetStateAction<string>>
+    setPlaying: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
-    myP5.current!.playing = !myP5.current!.playing;
-    if (myP5.current!.playing) setPlayButtonText("Pause");
-    else setPlayButtonText("Play");
+    myP5.current!.playingToggle!();
+    setPlaying(myP5.current!.isPLaying!())
 }

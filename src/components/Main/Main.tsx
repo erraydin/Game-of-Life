@@ -1,57 +1,57 @@
-import { FunctionComponent, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import p5 from "p5";
-import defineSketch, { myP5 } from "../../p5/sketch";
+// import defineSketch, { myP5 } from "../../p5/sketch";
+
+import defineSketch, { myP5 } from "../../p5/mySketch";
 import Controls from "../Controls/Controls";
 import classes from "./Main.module.css";
 import Patterns from "../Patterns/Patterns";
 import Preferences from "../Preferences/Preferences";
-import { empty, pattern } from "../../p5/presets"
-import { RouteComponentProps } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
-const Main: FunctionComponent<RouteComponentProps> = ({ match, history }) => {
+
+const Main = () => {
+
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-    let myPattern: number[][];
+    const [size, setSize] = useState(32);
+    const [playing, setPlaying] = useState(false);
+    let patternName: string;
+    const history = useHistory();
 
-    //When you change routes, you need to destroy the old p5 instance
-    //Otherwise it continues to run and after 10 location changes app 
-    //gets extremely slow and buggy
+
     history.listen((location) => {
-        if (location.pathname !== match.path) {
-            myP5.current?.remove();
+        if (location.pathname === "/") {
+            patternName = "empty";
+        } else {
+            patternName = location.pathname.slice(9);
         }
 
+        if (wrapper.current !== null) {
+            myP5.current!.changePattern!(patternName);
+            setSize(myP5.current!.getSize!());
+            setPlaying(false);
+        }
     })
 
-    if (match.path === "/") {
-        myPattern = empty;
-    } else {
-        myPattern = pattern.get(match.path.slice(9))!
-    }
-
-    const size = myPattern.length;
 
     useEffect(() => {
         if (wrapper.current !== null) {
-            if (myP5.current) {
-                console.log("Nooooo");
-            }
-            myP5.current = new p5(defineSketch(false, 600 / size, size, size, 20, myPattern!), wrapper.current)
+            myP5.current = new p5(defineSketch(), wrapper.current)
             console.log("useEffectCalled");
         }
-    }, [size, myPattern])
-
+    }, [])
 
     return (
         <div className={classes.mainContainer}>
             <div className={classes.canvas} ref={wrapper} />
             <div className={classes.column}>
                 <div className={classes.row}>
-                    <Preferences myP5={myP5} wrapper={wrapper} initialSize={size} />
+                    <Preferences myP5={myP5} size={size} setSize={setSize} setPlaying={setPlaying} />
                     <Patterns />
                 </div>
-                <Controls myP5={myP5} />
+                <Controls myP5={myP5} playing={playing} setPlaying={setPlaying} />
             </div>
         </div>
     );

@@ -1,20 +1,18 @@
 import { ChangeEvent } from "react";
-import defineSketch, { myP5 } from "../../p5/sketch";
-import p5 from "p5";
-import { pattern } from "../../p5/presets";
+import { myP5 } from "../../p5/mySketch";
+
 
 export const sizeSliderHandler = (
     event: ChangeEvent<HTMLInputElement>,
     myP5: React.MutableRefObject<myP5 | null>,
-    wrapper: React.RefObject<HTMLDivElement>,
-    fps: number,
-    setSize: React.Dispatch<React.SetStateAction<number>>
+    setSize: React.Dispatch<React.SetStateAction<number>>,
+    setPlaying: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-    const num = +event.target.value;
-    const playing = myP5.current!.playing;
-    myP5.current?.remove();
-    myP5.current = new p5(defineSketch(playing!, 600 / num, num, num, fps, pattern.get("119P4H1V0")!), wrapper.current!)
-    setSize(num);
+    const newSize = +event.target.value;
+    myP5.current!.changeSize!(newSize);
+    setSize(newSize);
+    setPlaying(false);
+
 }
 
 export const fpsSliderHandler = (
@@ -23,6 +21,6 @@ export const fpsSliderHandler = (
     setFps: React.Dispatch<React.SetStateAction<number>>
 ) => {
     const fps = +event.target.value;
+    myP5.current!.changeFps!(fps);
     setFps(fps);
-    myP5.current!.fps = fps;
 }
