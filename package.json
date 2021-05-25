@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@types/p5": "^0.9.1"
+    "@types/p5": "^0.9.1",
+    "@types/react-router-dom": "^5.1.7"
   }
 }

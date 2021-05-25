@@ -1,0 +1,17 @@
+.row {
+    justify-content: space-evenly;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.patternCard {
+    cursor: pointer;
+    text-align: center;
+    border: solid 1px brown;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 100px;
+    background-color: antiquewhite;
+    line-height: 100px;
+}

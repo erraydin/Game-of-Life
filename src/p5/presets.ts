@@ -46,4 +46,14 @@ pattern.set("70P5H2V0", pattern70P5H2V0)
 pattern.set("60P312", pattern60P312)
 pattern.set("achimsp144", patternachimsp144)
 
+export const patternList = [
+    "101",
+    "119P4H1V0",
+    "25P3H1V01",
+    "295P5H1V1",
+    "70P5H2V0",
+    "60P312",
+    "achimsp144"
+]
+
 export { pattern };
