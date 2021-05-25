@@ -15,10 +15,9 @@
 
 .canvas {
     height: 600px;
-    width: 600px;
+    width: 645px;
     border: solid 2px antiquewhite;
     margin-right: 20px;
     border-radius: 20px;
-    padding: 20px;
     touch-action: none;
 }

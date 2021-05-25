@@ -15,9 +15,7 @@ function App() {
         <Route
           path={"/"}
           exact
-          render={(props) => (
-            <Main {...props} />
-          )}
+          component={Main}
         />
         {patternList.map((pattern, index) => {
           return (
@@ -25,9 +23,7 @@ function App() {
               key={index}
               path={"/pattern/" + pattern}
               exact
-              render={(props) => (
-                <Main {...props} />
-              )}
+              component={Main}
             />
           )
         })}
