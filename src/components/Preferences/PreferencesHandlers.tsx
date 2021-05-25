@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import defineSketch, { myP5 } from "../../p5/sketch";
 import p5 from "p5";
-import { pattern101 } from "../../p5/presets";
+import { pattern } from "../../p5/presets";
 
 export const sizeSliderHandler = (
     event: ChangeEvent<HTMLInputElement>,
@@ -13,7 +13,7 @@ export const sizeSliderHandler = (
     const num = +event.target.value;
     const playing = myP5.current!.playing;
     myP5.current?.remove();
-    myP5.current = new p5(defineSketch(playing!, 600 / num, num, num, fps, pattern101), wrapper.current!)
+    myP5.current = new p5(defineSketch(playing!, 600 / num, num, num, fps, pattern.get("119P4H1V0")!), wrapper.current!)
     setSize(num);
 }
 

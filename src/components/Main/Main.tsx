@@ -5,18 +5,20 @@ import Controls from "../Controls/Controls";
 import classes from "./Main.module.css";
 import Patterns from "../Patterns";
 import Preferences from "../Preferences/Preferences";
-import { pattern101 } from "../../p5/presets"
+import { pattern } from "../../p5/presets"
 
 const Main = () => {
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
-    const size = 32;
+    const myPattern = pattern.get("119P4H1V0");
+    const size = myPattern!.length;
+
     useEffect(() => {
         if (wrapper.current !== null) {
-            myP5.current = new p5(defineSketch(false, 600 / size, size, size, 20, pattern101), wrapper.current)
+            myP5.current = new p5(defineSketch(false, 600 / size, size, size, 20, myPattern!), wrapper.current)
             console.log("useEffectCalled");
         }
-    }, [])
+    }, [size, myPattern])
 
 
     return (
