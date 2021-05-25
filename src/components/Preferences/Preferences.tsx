@@ -17,7 +17,7 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, size, setSize,
                     name="sizeSlider"
                     type="range"
                     min="5"
-                    max="128"
+                    max="96"
                     value={size}
                     className={classes.slider}
                 />

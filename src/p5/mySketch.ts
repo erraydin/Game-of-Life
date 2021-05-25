@@ -35,14 +35,14 @@ const defineSketch = () => {
         }
 
         sketch.changeSize = (newSize) => {
-            sketch.noLoop();
+            // sketch.noLoop();
             size = newSize;
             cellSize = 600 / size;
             initialBoard = createEmptyBoard(size);
             curBoard = createEmptyBoard(size);
             nextBoard = createEmptyBoard(size);
             playing = false;
-            sketch.loop();
+            // sketch.loop();
         }
 
         sketch.playingToggle = () => {
@@ -50,7 +50,7 @@ const defineSketch = () => {
         }
 
         sketch.changePattern = (newPatternName) => {
-            sketch.noLoop();
+            // sketch.noLoop();
             patternName = newPatternName;
             initialBoard = pattern.get(patternName)!
             curBoard = deepCopy(initialBoard);
@@ -58,7 +58,7 @@ const defineSketch = () => {
             cellSize = 600 / size;
             nextBoard = createEmptyBoard(size);
             playing = false;
-            sketch.loop();
+            // sketch.loop();
 
 
         }
