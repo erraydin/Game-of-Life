@@ -5,6 +5,7 @@ import Controls from "../Controls/Controls";
 import classes from "./Main.module.css";
 import Patterns from "../Patterns";
 import Preferences from "../Preferences/Preferences";
+import { pattern101 } from "../../p5/presets"
 
 const Main = () => {
     const wrapper = useRef<HTMLDivElement>(null);
@@ -12,7 +13,7 @@ const Main = () => {
 
     useEffect(() => {
         if (wrapper.current !== null) {
-            myP5.current = new p5(defineSketch(false, 600 / 30, 30, 30, 20), wrapper.current)
+            myP5.current = new p5(defineSketch(false, 600 / 32, 32, 32, 20, pattern101), wrapper.current)
             console.log("useEffectCalled");
         }
     }, [])

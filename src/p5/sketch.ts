@@ -6,14 +6,16 @@ export type myP5 = p5 & {
     columns?: number,
     rows?: number,
     squareWidth?: number,
-    fps?: number
+    fps?: number,
+    initialBoard?: Array<Array<number>>
 }
 const defineSketch = (
     playing: boolean,
     w: number,
     cols: number,
     rows: number,
-    fps: number
+    fps: number,
+    initialBoard: Array<Array<number>>,
 ) => {
     return (sketch: myP5) => {
         //custom properties
@@ -33,13 +35,14 @@ const defineSketch = (
                 sketch.squareWidth! * sketch.columns!
             );
 
-            curBoard = new Array(sketch.rows);
+            // curBoard = new Array(sketch.rows);
+            curBoard = initialBoard;
             nextBoard = new Array(sketch.rows);
             for (let i = 0; i < rows; i++) {
-                curBoard[i] = new Array(sketch.columns);
+                // curBoard[i] = new Array(sketch.columns);
                 nextBoard[i] = new Array(sketch.columns);
                 for (let j = 0; j < sketch.columns!; j++) {
-                    curBoard[i][j] = 0;
+                    // curBoard[i][j] = 0;
                     nextBoard[i][j] = 0;
                 }
             }
@@ -73,8 +76,7 @@ const defineSketch = (
                     let neighbors = 0;
                     for (let i = -1; i <= 1; i++) {
                         for (let j = -1; j <= 1; j++) {
-                            neighbors += curBoard[mod(row + i, sketch.rows)]
-                            [mod(col + j, sketch.columns)];
+                            neighbors += curBoard[mod(row + i, sketch.rows)][mod(col + j, sketch.columns)];
                         }
                     }
                     neighbors -= curBoard[row][col];

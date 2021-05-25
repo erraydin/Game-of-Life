@@ -12,12 +12,12 @@ const Canvas = () => {
     const wrapper = useRef<HTMLDivElement>(null);
     const myP5 = useRef<myP5 | null>(null);
 
-    useEffect(() => {
-        if (wrapper.current !== null) {
-            myP5.current = new p5(defineSketch(false, 600 / 30, 30, 30, 20), wrapper.current)
-            console.log("useEffectCalled");
-        }
-    }, [])
+    // useEffect(() => {
+    //     if (wrapper.current !== null) {
+    //         myP5.current = new p5(defineSketch(false, 600 / 30, 30, 30, 20), wrapper.current)
+    //         console.log("useEffectCalled");
+    //     }
+    // }, [])
 
     const playButtonHandler = () => {
         myP5.current!.playing = !myP5.current!.playing;
