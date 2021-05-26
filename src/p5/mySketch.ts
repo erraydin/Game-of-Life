@@ -18,7 +18,7 @@ const defineSketch = () => {
         let playing = false;
         let size = 32;
         let cellSize = 600 / size;
-        let fps = 20;
+        let fps = 30;
         let patternName = "empty";
         let initialBoard: Array<Array<number>>;
         let curBoard: Array<Array<number>>;

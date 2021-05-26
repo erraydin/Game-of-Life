@@ -5,7 +5,7 @@ import { PreferencesProps } from "./PreferencesProps";
 
 
 const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, size, setSize, setPlaying }) => {
-    const [fps, setFps] = useState(20);
+    const [fps, setFps] = useState(30);
     return (
         <div className={classes.column}>
             <div>
@@ -30,7 +30,7 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, size, setSize,
                     type="range"
                     min="1"
                     max="60"
-                    defaultValue="20"
+                    defaultValue="30"
                     className={classes.slider}
                 />
             </div>
