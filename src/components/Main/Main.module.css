@@ -7,6 +7,7 @@
 .column {
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
 }
 
 .row {
@@ -19,8 +20,13 @@
     border-top-right-radius: 20px;
     background-color: #eef0f1;
     padding: 20px 20px 0 20px;
-    height: 620px;
-    width: 600px;
-    margin-right: 20px;
+    width: 350px;
+    height: 380px;
     touch-action: none;
+}
+
+.hr {
+    border: none;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    margin: 0;
 }

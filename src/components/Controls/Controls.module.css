@@ -4,7 +4,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     background-color: #eef0f1;
-    width: 640px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;

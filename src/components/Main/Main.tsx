@@ -56,7 +56,8 @@ const Main = () => {
     return (
         <div className={classes.mainContainer}>
             <div className={classes.column}>
-                <div className={classes.canvas} ref={wrapper} />
+                <div className={classes.canvas} ref={wrapper} id="myCanvas" />
+                <hr className={classes.hr} />
                 <Controls myP5={myP5} playing={playing} setPlaying={setPlaying} />
             </div>
             <div className={classes.column}>
