@@ -60,6 +60,7 @@ const Main = () => {
                 <Controls myP5={myP5} playing={playing} setPlaying={setPlaying} />
             </div>
             <div className={classes.column}>
+
                 <Preferences myP5={myP5} size={size} setSize={setSize} setPlaying={setPlaying} />
                 <Patterns />
             </div>

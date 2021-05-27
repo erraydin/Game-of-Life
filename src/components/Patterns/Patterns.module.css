@@ -1,17 +1,79 @@
-.row {
-    flex-direction: column;
-    justify-content: space-evenly;
+.patterns {
+    border-radius: 20px;
+    margin-top: 20px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #eef0f1;
     display: flex;
+    flex-direction: column;
 }
 
-.patternCard {
-    cursor: pointer;
-    text-align: center;
-    border: solid 1px brown;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    width: 100px;
-    height: 100px;
-    background-color: rgb(214, 190, 159);
-    line-height: 100px;
+.container {
+    border-radius: 20px;
+    overflow-y: auto;
+    padding: 5px;
+    background: #eef0f1;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+}
+
+.innerContainer {
+    border-radius: 20px;
+    height: 100%;
+    padding: 5px;
+    background: #eef0f1;
+    display: flex;
+    flex-direction: column;
+}
+
+.patternItem {
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.title {
+    color: rgb(70, 70, 70);
+    margin-top: 5px;
+    margin-bottom: 0.5em;
+    padding-left: 10px;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid rgb(177, 177, 177);
+    margin: 0 15px;
+}
+
+a:visited {
+    color: black;
+}
+
+.selected {
+    background-color: rgb(207, 207, 207);
+}
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

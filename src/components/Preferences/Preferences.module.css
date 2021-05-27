@@ -44,6 +44,10 @@
     background-color: #bd6262;
 }
 
+h3 {
+    color: rgb(70, 70, 70);
+}
+
 .slider {
     -webkit-appearance: none;
     /* Override default CSS styles */
