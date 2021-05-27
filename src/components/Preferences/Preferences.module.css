@@ -134,3 +134,10 @@ h3 {
         height: 15px;
     }
 }
+
+@media(max-width: 500px) {
+    .column {
+        width: auto;
+        margin-right: 0;
+    }
+}

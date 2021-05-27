@@ -10,12 +10,12 @@
 
 .container {
     border-radius: 20px;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 5px;
     background: #eef0f1;
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 290px;
 }
 
 .innerContainer {
@@ -63,6 +63,12 @@ a:visited {
         height: 150px;
     }
 }
+
+/* @media(max-width: 500px) {
+    .patterns {
+        width: 80%;
+    }
+} */
 
 /* width */
 
