@@ -11,7 +11,8 @@ export type myP5 = p5 & {
     isPLaying?: () => boolean,
     getSize?: () => number,
     clearPattern?: () => void,
-    getGeneration?: () => number
+    getGeneration?: () => number,
+    nextFrame?: () => void
 }
 
 
@@ -75,9 +76,37 @@ const defineSketch = () => {
 
         }
 
+        sketch.nextFrame = () => {
+            for (let row = 0; row < size; row++) {
+                for (let col = 0; col < size; col++) {
+                    let neighbors = 0;
+                    for (let i = -1; i <= 1; i++) {
+                        for (let j = -1; j <= 1; j++) {
+                            neighbors += curBoard[mod(row + i, size)][mod(col + j, size)];
+                        }
+                    }
+                    neighbors -= curBoard[row][col];
+                    //Loneliness and overpopulation
+                    if (curBoard[row][col] === 1 &&
+                        (neighbors < 2 || neighbors > 3)) {
+                        nextBoard[row][col] = 0;
+                        // Reproduction
+                    } else if (curBoard[row][col] === 0 && neighbors === 3) {
+                        nextBoard[row][col] = 1;
+                    } else {
+                        nextBoard[row][col] = curBoard[row][col];
+                    }
+                }
+            }
+            generation++;
+            const temp = curBoard;
+            curBoard = nextBoard;
+            nextBoard = temp;
+        }
+
 
         /*#######################################################################################
-        #######################   P5's Own Functions and private helpers #########################
+        #################################   P5's Own Functions  ##################################
         #########################################################################################*/
 
         sketch.setup = () => {
@@ -106,37 +135,11 @@ const defineSketch = () => {
             sketch.fill(100);
             sketch.text("Generation: " + generation, 270, 618)
             if (playing) {
-                nextFrame();
-                generation++;
+                sketch.nextFrame!();
             }
         }
 
-        const nextFrame = () => {
-            for (let row = 0; row < size; row++) {
-                for (let col = 0; col < size; col++) {
-                    let neighbors = 0;
-                    for (let i = -1; i <= 1; i++) {
-                        for (let j = -1; j <= 1; j++) {
-                            neighbors += curBoard[mod(row + i, size)][mod(col + j, size)];
-                        }
-                    }
-                    neighbors -= curBoard[row][col];
-                    //Loneliness and overpopulation
-                    if (curBoard[row][col] === 1 &&
-                        (neighbors < 2 || neighbors > 3)) {
-                        nextBoard[row][col] = 0;
-                        // Reproduction
-                    } else if (curBoard[row][col] === 0 && neighbors === 3) {
-                        nextBoard[row][col] = 1;
-                    } else {
-                        nextBoard[row][col] = curBoard[row][col];
-                    }
-                }
-            }
-            const temp = curBoard;
-            curBoard = nextBoard;
-            nextBoard = temp;
-        }
+
 
         sketch.mouseDragged = () => {
             let col = Math.floor(sketch.mouseX / cellSize);
