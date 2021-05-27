@@ -1,9 +1,10 @@
 .column {
+    width: 300px;
     border-radius: 16px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    background-color: antiquewhite;
+    background-color: #eef0f1;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -20,7 +21,6 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
 }
 
@@ -37,7 +37,6 @@
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
 }
 
@@ -49,7 +48,7 @@
     -webkit-appearance: none;
     /* Override default CSS styles */
     appearance: none;
-    width: 200px;
+    width: 100%;
     /* Full-width */
     height: 10px;
     /* Specified height */

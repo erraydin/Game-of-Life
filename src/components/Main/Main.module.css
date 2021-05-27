@@ -14,11 +14,12 @@
 }
 
 .canvas {
-    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #eef0f1;
+    padding: 20px 20px 0 20px;
     height: 620px;
-    width: 645px;
-    border: solid 2px antiquewhite;
+    width: 600px;
     margin-right: 20px;
-    border-radius: 20px;
     touch-action: none;
 }

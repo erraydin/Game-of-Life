@@ -1,7 +1,7 @@
 .row {
+    flex-direction: column;
     justify-content: space-evenly;
     display: flex;
-    flex-flow: row wrap;
 }
 
 .patternCard {
@@ -12,6 +12,6 @@
     margin-bottom: 5px;
     width: 100px;
     height: 100px;
-    background-color: antiquewhite;
+    background-color: rgb(214, 190, 159);
     line-height: 100px;
 }

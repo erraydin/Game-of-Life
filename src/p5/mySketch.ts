@@ -12,17 +12,17 @@ export type myP5 = p5 & {
     getSize?: () => number,
     clearPattern?: () => void,
     getGeneration?: () => number,
-    nextFrame?: () => void
+    nextFrame?: () => void,
+    initBoard?: (initialPattern: string) => void
 }
 
 
-const defineSketch = () => {
+const defineSketch = (initialPattern: string) => {
     return (sketch: myP5) => {
         let playing = false;
-        let size = 32;
-        let cellSize = 600 / size;
+        let size: number;
+        let cellSize: number;
         let fps = 30;
-        let patternName = "empty";
         let initialBoard: Array<Array<number>>;
         let curBoard: Array<Array<number>>;
         let nextBoard: Array<Array<number>>;
@@ -37,6 +37,22 @@ const defineSketch = () => {
 
         sketch.changeFps = (newFps) => {
             fps = newFps;
+        }
+
+        sketch.initBoard = (initialPattern) => {
+            if (initialPattern === "empty") {
+                size = 32;
+                cellSize = 600 / 32;
+                initialBoard = createEmptyBoard(size);
+                curBoard = createEmptyBoard(size);
+                nextBoard = createEmptyBoard(size);
+            } else {
+                initialBoard = pattern.get(initialPattern)!
+                curBoard = deepCopy(initialBoard);
+                size = initialBoard.length;
+                cellSize = 600 / size;
+                nextBoard = createEmptyBoard(size);
+            }
         }
 
         sketch.changeSize = (newSize) => {
@@ -56,7 +72,6 @@ const defineSketch = () => {
         }
 
         sketch.clearPattern = () => {
-            patternName = "empty";
             initialBoard = createEmptyBoard(size);
             curBoard = createEmptyBoard(size);
             nextBoard = createEmptyBoard(size);
@@ -65,8 +80,7 @@ const defineSketch = () => {
 
 
         sketch.changePattern = (newPatternName) => {
-            patternName = newPatternName;
-            initialBoard = pattern.get(patternName)!
+            initialBoard = pattern.get(newPatternName)!
             curBoard = deepCopy(initialBoard);
             size = initialBoard.length;
             cellSize = 600 / size;
@@ -111,23 +125,24 @@ const defineSketch = () => {
 
         sketch.setup = () => {
             sketch.createCanvas(600, 620);
-            initialBoard = createEmptyBoard(size);
-            curBoard = createEmptyBoard(size);
-            nextBoard = createEmptyBoard(size);
-            sketch.stroke(240);
+            sketch.initBoard!(initialPattern);
+            // initialBoard = createEmptyBoard(size);
+            // curBoard = createEmptyBoard(size);
+            // nextBoard = createEmptyBoard(size);
+            sketch.stroke(220);
             sketch.strokeWeight(1);
         }
 
 
         sketch.draw = () => {
-            sketch.background(255);
+            sketch.background('#eef0f1');
             sketch.frameRate(fps);
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
                     if (curBoard[i][j] === 1) {
                         sketch.fill(0);
                     } else {
-                        sketch.fill(255);
+                        sketch.fill('#eef0f1');
                     }
                     sketch.rect(j * cellSize, i * cellSize, cellSize - 1, cellSize - 1);
                 }
