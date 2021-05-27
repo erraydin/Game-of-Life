@@ -66,6 +66,15 @@ const Main = () => {
                 <Patterns />
             </div>
 
+            <div className={classes.info}>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
+            </div>
+
         </div>
     );
 }

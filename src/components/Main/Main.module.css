@@ -8,12 +8,14 @@
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    width: 40%;
 }
 
 .patternsPreferences {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
+    flex-grow: 25%;
 }
 
 .row {
@@ -25,9 +27,8 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     background-color: #eef0f1;
+    width: calc(100% - 40px);
     padding: 20px 20px 0 20px;
-    width: 570px;
-    height: 600px;
     touch-action: none;
 }
 
@@ -35,6 +36,12 @@
     border: none;
     border-bottom: 1px solid rgb(204, 204, 204);
     margin: 0;
+}
+
+.info {
+    background-color: #eef0f1;
+    border-radius: 20px;
+    width: 25%;
 }
 
 @media(max-width: 768px) {

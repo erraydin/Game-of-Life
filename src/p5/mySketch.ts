@@ -127,6 +127,7 @@ const defineSketch = (initialPattern: string) => {
         sketch.setup = () => {
             const canvasDiv = document.getElementById("myCanvas");
             width = canvasDiv?.offsetWidth! - 40;
+            console.log(width);
             sketch.createCanvas(width!, width! + 20);
             sketch.initBoard!(initialPattern);
             // initialBoard = createEmptyBoard(size);
