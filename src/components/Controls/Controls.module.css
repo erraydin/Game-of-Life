@@ -1,13 +1,13 @@
 .row {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .playButton {
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 10px;
     background-color: #4CAF50;
     border: none;
     color: white;

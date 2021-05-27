@@ -10,6 +10,8 @@ export type myP5 = p5 & {
     playingToggle?: () => void,
     isPLaying?: () => boolean,
     getSize?: () => number,
+    clearPattern?: () => void,
+    getGeneration?: () => number
 }
 
 
@@ -23,10 +25,12 @@ const defineSketch = () => {
         let initialBoard: Array<Array<number>>;
         let curBoard: Array<Array<number>>;
         let nextBoard: Array<Array<number>>;
+        let generation = 0;
 
         /*#######################################################################################
         ###############   PUBLIC FUNCTIONS TO MANIPUTALE P5 FROM OUTSIDE #######################
         #########################################################################################*/
+        sketch.getGeneration = () => generation;
         sketch.getSize = () => size;
         sketch.isPLaying = () => playing;
 
@@ -41,6 +45,7 @@ const defineSketch = () => {
             initialBoard = createEmptyBoard(size);
             curBoard = createEmptyBoard(size);
             nextBoard = createEmptyBoard(size);
+            generation = 0;
             playing = false;
             // sketch.loop();
         }
@@ -49,17 +54,24 @@ const defineSketch = () => {
             playing = !playing;
         }
 
+        sketch.clearPattern = () => {
+            patternName = "empty";
+            initialBoard = createEmptyBoard(size);
+            curBoard = createEmptyBoard(size);
+            nextBoard = createEmptyBoard(size);
+            generation = 0;
+        }
+
+
         sketch.changePattern = (newPatternName) => {
-            // sketch.noLoop();
             patternName = newPatternName;
             initialBoard = pattern.get(patternName)!
             curBoard = deepCopy(initialBoard);
             size = initialBoard.length;
             cellSize = 600 / size;
             nextBoard = createEmptyBoard(size);
+            generation = 0;
             playing = false;
-            // sketch.loop();
-
 
         }
 
@@ -69,7 +81,7 @@ const defineSketch = () => {
         #########################################################################################*/
 
         sketch.setup = () => {
-            sketch.createCanvas(600, 600);
+            sketch.createCanvas(600, 620);
             initialBoard = createEmptyBoard(size);
             curBoard = createEmptyBoard(size);
             nextBoard = createEmptyBoard(size);
@@ -79,6 +91,7 @@ const defineSketch = () => {
 
 
         sketch.draw = () => {
+            sketch.background(255);
             sketch.frameRate(fps);
             for (let i = 0; i < size; i++) {
                 for (let j = 0; j < size; j++) {
@@ -90,8 +103,11 @@ const defineSketch = () => {
                     sketch.rect(j * cellSize, i * cellSize, cellSize - 1, cellSize - 1);
                 }
             }
+            sketch.fill(100);
+            sketch.text("Generation: " + generation, 270, 618)
             if (playing) {
                 nextFrame();
+                generation++;
             }
         }
 

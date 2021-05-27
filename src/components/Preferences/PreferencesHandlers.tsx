@@ -24,3 +24,9 @@ export const fpsSliderHandler = (
     myP5.current!.changeFps!(fps);
     setFps(fps);
 }
+
+export const clearButtonHandler = (
+    myP5: React.MutableRefObject<myP5 | null>,
+) => {
+    myP5.current!.clearPattern!();
+}

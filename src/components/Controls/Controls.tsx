@@ -3,8 +3,8 @@ import classes from "./Controls.module.css";
 import { playButtonHandler } from "./ControlsHandlers";
 import { ControlsProps } from "./ControlsProps";
 
-
 const Controls: FunctionComponent<ControlsProps> = ({ myP5, playing, setPlaying }) => {
+
     return (
         <div className={classes.row}>
             <button

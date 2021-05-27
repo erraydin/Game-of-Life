@@ -1,6 +1,6 @@
 import classes from "./Preferences.module.css";
 import { FunctionComponent, useState } from "react";
-import { sizeSliderHandler, fpsSliderHandler } from "./PreferencesHandlers"
+import { sizeSliderHandler, fpsSliderHandler, clearButtonHandler } from "./PreferencesHandlers"
 import { PreferencesProps } from "./PreferencesProps";
 
 
@@ -37,7 +37,7 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, size, setSize,
             <button className={classes.populateButton}>
                 Populate Randomly
             </button>
-            <button className={classes.clearButton}>
+            <button onClick={() => clearButtonHandler(myP5)} className={classes.clearButton}>
                 Clear
             </button>
         </div>
