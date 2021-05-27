@@ -101,3 +101,36 @@ h3 {
     cursor: pointer;
     /* Cursor on hover */
 }
+
+@media(max-width: 768px) {
+    h3 {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    .column {
+        margin-top: 20px;
+        flex-grow: 1;
+        width: fit-content;
+        margin-right: 20px;
+    }
+    .clearButton {
+        margin-top: 5px;
+        padding: 10px 32px;
+    }
+    .populateButton {
+        margin-top: 10px;
+        padding: 10px 32px;
+        margin-bottom: 5px;
+    }
+    .slider {
+        height: 5px;
+    }
+    .slider::-webkit-slider-thumb {
+        width: 15px;
+        height: 15px;
+    }
+    .slider::-moz-range-thumb {
+        width: 15px;
+        height: 15px;
+    }
+}

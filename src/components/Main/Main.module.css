@@ -10,6 +10,12 @@
     margin-right: 20px;
 }
 
+.patternsPreferences {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
 .row {
     display: flex;
     flex-direction: row;
@@ -20,8 +26,8 @@
     border-top-right-radius: 20px;
     background-color: #eef0f1;
     padding: 20px 20px 0 20px;
-    width: 350px;
-    height: 380px;
+    width: 570px;
+    height: 600px;
     touch-action: none;
 }
 
@@ -29,4 +35,34 @@
     border: none;
     border-bottom: 1px solid rgb(204, 204, 204);
     margin: 0;
+}
+
+@media(max-width: 768px) {
+    .mainContainer {
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+    }
+    .column {
+        width: 90%;
+        align-items: center;
+        margin-right: 0;
+    }
+    .canvas {
+        width: 95%;
+        height: auto;
+    }
+    .hr {
+        width: 90%;
+        padding: 0 20px;
+    }
+    .patternsPreferences {
+        width: 90%;
+        flex-direction: row;
+        margin-right: 0;
+        justify-content: space-between;
+        height: 240px;
+    }
 }
