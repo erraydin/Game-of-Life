@@ -126,9 +126,18 @@ const defineSketch = (initialPattern: string) => {
 
         sketch.setup = () => {
             const canvasDiv = document.getElementById("myCanvas");
-            width = canvasDiv?.offsetWidth! - 40;
+            const divHeight = canvasDiv?.offsetHeight;
+            const divWidth = canvasDiv?.offsetWidth;
+
+            if (sketch.windowHeight < sketch.windowWidth) {
+                width = divHeight! - 70;
+                sketch.createCanvas(width!, width! + 30);
+            } else {
+                width = divWidth! - 40;
+                sketch.createCanvas(width!, width! + 40);
+            }
             console.log(width);
-            sketch.createCanvas(width!, width! + 20);
+            // sketch.createCanvas(width!, width! + 40);
             sketch.initBoard!(initialPattern);
             // initialBoard = createEmptyBoard(size);
             // curBoard = createEmptyBoard(size);
@@ -152,7 +161,7 @@ const defineSketch = (initialPattern: string) => {
                 }
             }
             sketch.fill(100);
-            sketch.text("Generation: " + generation, width / 2 - 30, width + 20)
+            sketch.text("Generation: " + generation, width / 2 - 30, width + 30)
             if (playing) {
                 sketch.nextFrame!();
             }

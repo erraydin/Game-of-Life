@@ -61,12 +61,30 @@ const Main = () => {
                 <Controls myP5={myP5} playing={playing} setPlaying={setPlaying} />
             </div>
             <div className={classes.patternsPreferences}>
-
-                <Preferences myP5={myP5} size={size} setSize={setSize} setPlaying={setPlaying} />
                 <Patterns />
+                <Preferences myP5={myP5} size={size} setSize={setSize} setPlaying={setPlaying} />
+
             </div>
 
             <div className={classes.info}>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
+                <div>
+                    Abi naber ya
+                </div>
                 <div>
                     Abi naber ya
                 </div>

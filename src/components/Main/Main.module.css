@@ -1,4 +1,5 @@
 .mainContainer {
+    height: 90vh;
     margin: 10px 10px;
     display: flex;
     flex-direction: row;
@@ -8,14 +9,14 @@
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    width: 40%;
+    height: 100%;
 }
 
 .patternsPreferences {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
-    flex-grow: 25%;
+    width: 20%;
 }
 
 .row {
@@ -30,6 +31,7 @@
     width: calc(100% - 40px);
     padding: 20px 20px 0 20px;
     touch-action: none;
+    height: 100%;
 }
 
 .hr {
@@ -46,6 +48,7 @@
 
 @media(max-width: 768px) {
     .mainContainer {
+        height: fit-content;
         margin: auto;
         width: 90%;
         margin-top: 20px;
@@ -59,18 +62,23 @@
     }
     .canvas {
         width: 95%;
-        height: auto;
+        height: 100%;
     }
     .hr {
         width: 90%;
         padding: 0 20px;
     }
     .patternsPreferences {
+        margin-top: 20px;
         width: 95%;
         flex-direction: row;
         margin-right: 0;
         justify-content: space-between;
-        height: 240px;
+    }
+    .info {
+        margin: auto;
+        margin-top: 20px;
+        width: 95%;
     }
 }
 
