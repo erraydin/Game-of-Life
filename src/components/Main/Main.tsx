@@ -68,7 +68,7 @@ const Main = () => {
 
             <div className={classes.info}>
                 <div className={classes.textContainer}>
-                    <h3>Info: (From wikipedia)</h3>
+                    <h3>What is Game of Life? (from wikipedia)</h3>
                     <p>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. </p>
 
                     <h3>Rules: </h3>
@@ -82,10 +82,12 @@ const Main = () => {
                     <h3>Controls: </h3>
                     <ul>
                         <li>Use your mouse to draw an initial state. Or pick one of the existing ones from the Patterns menu.</li>
-                        <li>Click play to see system evolving.</li>
-                        <li>Next button shows the next step and stops the playing.</li>
+                        <li>Click play to see the system evolving.</li>
+                        <li>Next button shows the next frame.</li>
                         <li>You can change the size and speed in the corresponding menu. Changing the size resets the board.</li>
                     </ul>
+
+                    <p><em>Credits:</em> <a href="https://conwaylife.com/ref/lexicon/lex.htm">https://conwaylife.com/ref/lexicon/lex.htm</a> </p>
                 </div>
 
             </div>
