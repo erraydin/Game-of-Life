@@ -47,6 +47,7 @@
 
 h3 {
     color: rgb(70, 70, 70);
+    margin-top: 5px;
 }
 
 .slider {
@@ -106,7 +107,6 @@ h3 {
 @media(max-width: 1024px) {
     h3 {
         font-size: 14px;
-        margin-bottom: 5px;
         margin-top: 8px;
     }
     .column {
@@ -125,7 +125,7 @@ h3 {
         padding: 10px 32px;
         margin-bottom: 5px;
     }
-    .slider {
+    /* .slider {
         height: 5px;
     }
     .slider::-webkit-slider-thumb {
@@ -135,7 +135,7 @@ h3 {
     .slider::-moz-range-thumb {
         width: 12px;
         height: 12px;
-    }
+    } */
 }
 
 @media(max-width: 500px) {

@@ -34,9 +34,9 @@ const Preferences: FunctionComponent<PreferencesProps> = ({ myP5, size, setSize,
                     className={classes.slider}
                 />
             </div>
-            <button className={classes.populateButton}>
+            {/* <button className={classes.populateButton}>
                 Populate Randomly
-            </button>
+            </button> */}
             <button onClick={() => clearButtonHandler(myP5)} className={classes.clearButton}>
                 Clear
             </button>

@@ -129,6 +129,7 @@ const defineSketch = (initialPattern: string) => {
             const divHeight = canvasDiv?.offsetHeight;
             const divWidth = canvasDiv?.offsetWidth;
 
+            //To make it a litte more responsive, but not perfect
             if (sketch.windowHeight < sketch.windowWidth) {
                 width = divHeight! - 70;
                 sketch.createCanvas(width!, width! + 30);
@@ -137,11 +138,7 @@ const defineSketch = (initialPattern: string) => {
                 sketch.createCanvas(width!, width! + 40);
             }
             console.log(width);
-            // sketch.createCanvas(width!, width! + 40);
             sketch.initBoard!(initialPattern);
-            // initialBoard = createEmptyBoard(size);
-            // curBoard = createEmptyBoard(size);
-            // nextBoard = createEmptyBoard(size);
             sketch.stroke(220);
             sketch.strokeWeight(1);
         }
