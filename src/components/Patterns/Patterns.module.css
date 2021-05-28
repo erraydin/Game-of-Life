@@ -5,7 +5,7 @@
     background: #eef0f1;
     display: flex;
     flex-direction: column;
-    height: 240px;
+    flex-grow: 1;
 }
 
 .container {
@@ -55,21 +55,20 @@ a:visited {
     background-color: rgb(207, 207, 207);
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
     .patterns {
         flex-grow: 1.3;
-        height: 200px;
-    }
-    .container {
-        height: 150px;
+        height: 250px;
     }
 }
 
-/* @media(max-width: 500px) {
+@media(max-width: 500px) {
     .patterns {
-        width: 80%;
+        margin: auto;
+        flex-grow: unset;
+        width: 90%;
     }
-} */
+}
 
 /* width */
 

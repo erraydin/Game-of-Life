@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex-grow: 1;
+    height: 300px;
 }
 
 .populateButton {
@@ -103,13 +103,14 @@ h3 {
     /* Cursor on hover */
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
     h3 {
         font-size: 14px;
         margin-bottom: 5px;
         margin-top: 8px;
     }
     .column {
+        height: 250px;
         margin-top: 0;
         flex-grow: 1;
         width: fit-content;
@@ -139,7 +140,8 @@ h3 {
 
 @media(max-width: 500px) {
     .column {
-        width: auto;
-        margin-right: 0;
+        width: 85%;
+        margin: auto;
+        margin-bottom: 20px;
     }
 }

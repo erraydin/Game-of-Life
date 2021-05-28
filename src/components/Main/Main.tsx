@@ -67,30 +67,27 @@ const Main = () => {
             </div>
 
             <div className={classes.info}>
-                <div>
-                    Abi naber ya
+                <div className={classes.textContainer}>
+                    <h3>Info: (From wikipedia)</h3>
+                    <p>The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. </p>
+
+                    <h3>Rules: </h3>
+                    <ul>
+                        <li>Any live cell with fewer than two live neighbours dies, as if by underpopulation.</li>
+                        <li>Any live cell with two or three live neighbours lives on to the next generation.</li>
+                        <li>Any live cell with more than three live neighbours dies, as if by overpopulation.</li>
+                        <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
+                    </ul>
+
+                    <h3>Controls: </h3>
+                    <ul>
+                        <li>Use your mouse to draw an initial state. Or pick one of the existing ones from the Patterns menu.</li>
+                        <li>Click play to see system evolving.</li>
+                        <li>Next button shows the next step and stops the playing.</li>
+                        <li>You can change the size and speed in the corresponding menu. Changing the size resets the board.</li>
+                    </ul>
                 </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
-                <div>
-                    Abi naber ya
-                </div>
+
             </div>
 
         </div>

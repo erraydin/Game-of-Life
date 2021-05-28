@@ -24,7 +24,7 @@
     font-size: 16px;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1024px) {
     .row {
         width: 95%;
         padding: 10px 20px;
